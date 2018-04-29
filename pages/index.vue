@@ -14,22 +14,26 @@ import Bit from "~/components/Bit.vue";
 import gql from "graphql-tag";
 
 export default {
-  async asyncData({ params }) {
-    const { data } = await apollo.query({
-      query: gql`
-        {
-          allBits {
-            id
-            title
-            markdown
-            type
+  async asyncData({ error }) {
+    try {
+      const { data } = await apollo.query({
+        query: gql`
+          {
+            allBits {
+              id
+              title
+              markdown
+              type
+            }
           }
-        }
-      `
-    });
-    return {
-      allBits: data.allBits
-    };
+        `
+      });
+      return {
+        allBits: data.allBits
+      };
+    } catch (ex) {
+      error({ statusCode: 503, message: "Failed loading data." });
+    }
   },
   components: {
     Bit

@@ -17,6 +17,11 @@
         <nuxt/>
       </main><aside class="col c3 right">
         <!--YIELD RIGHT-->
+        <ul>
+          <li><a href="https://twitter.com/bitraten" rel="me">@bitraten on Twitter</a></li>
+          <li><a href="https://github.com/bitraten" rel="me">Github</a></li>
+          <li><a href="mailto:rph@bitraten.net" rel="me">rph@bitraten.net</a></li>
+        </ul>
       </aside>
     </div>
   </div>
